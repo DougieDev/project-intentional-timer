@@ -30,11 +30,6 @@ function restrictNumber(e) {
   this.value = newValue;
 }
 
-function restrictNumber(e) {
-  var newValue = this.value.replace();
-  this.value = newValue;
-}
-
 // buttons
 
 meditate.addEventListener('click', changeMediBtnColor)
@@ -128,37 +123,37 @@ function displayTimer() {
 
 startTimerBtn.addEventListener('click', startTimer)
 
+function checkForSecondZero(input) {
+  if (input < 10) {
+    return '0' + input;
+  } else {
+    return input;
+  }
+}
+
 function startTimer() {
   function timer() {
     setTimeout(function() {
       if (seconds > 0) {
         seconds--;
-        secondsDisplay.innerText = seconds;
-        minutesDisplay.innerText = minutes;
-        if (seconds < 10) {
-          secondsDisplay.innerText = '0' + seconds;
-        }
-        if (minutes < 10) {
-          minutesDisplay.innerText = '0' + minutes;
-        }
+        secondsDisplay.innerText = checkForSecondZero(seconds);
+        minutesDisplay.innerText = checkForSecondZero(minutes);
         return timer();
       } else if (seconds === 0 && minutes > 0) {
         minutes--;
         seconds = 59;
         secondsDisplay.innerText = seconds;
-        minutesDisplay.innerText = minutes;
-        if (minutes < 10) {
-          minutesDisplay.innerText = '0' + minutes;
-        }
+        minutesDisplay.innerText = checkForSecondZero(minutes);
         return timer();
       } else if (seconds === 0 && minutes === 0) {
-        clearInterval(timer);
-        window.alert('Time is up!')
+        goalDisplay.innerText = 'Congratulations! Task complete!';
       }
     }, 1000)
   }
   timer();
 }
+
+
 
 // prevents form from refreshing by default
 
