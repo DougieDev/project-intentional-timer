@@ -1,5 +1,3 @@
-console.log("JavaScript test")
-
 // variables
 
 var minutesInput = document.querySelector('.minutes')
@@ -152,8 +150,6 @@ function startTimer() {
   }
   timer();
 }
-
-
 
 // prevents form from refreshing by default
 
