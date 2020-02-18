@@ -113,11 +113,11 @@ var seconds = 0
 function displayTimer() {
   goalDisplay.innerText = userGoalInput.value;
   minutesDisplay.innerText = minutesInput.value;
-  minutes = minutesInput.value;
+  minutes = parseInt(minutesInput.value);
     if (minutes < 10) {
       minutesDisplay.innerText = '0' + minutes;
     }
-  seconds = secondsInput.value;
+  seconds = parseInt(secondsInput.value);
   secondsDisplay.innerText = secondsInput.value;
     if (seconds < 10) {
       secondsDisplay.innerText = '0' + seconds;
