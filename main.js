@@ -153,7 +153,6 @@ function startTimer() {
         return timer();
       } else if (seconds === 0 && minutes === 0) {
         clearInterval(timer);
-        console.log('done');
         window.alert('Time is up!')
       }
     }, 1000)
